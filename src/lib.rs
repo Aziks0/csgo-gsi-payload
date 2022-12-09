@@ -4,3 +4,28 @@
 //! [reddit_doc]: https://www.reddit.com/r/GlobalOffensive/comments/cjhcpy/game_state_integration_a_very_large_and_indepth/
 //! [reddit_doc_archive]: https://web.archive.org/web/20220906050651/https://www.reddit.com/r/GlobalOffensive/comments/cjhcpy/game_state_integration_a_very_large_and_indepth/
 
+use serde::Deserialize;
+
+mod bomb;
+mod custom;
+mod map;
+mod phase_countdowns;
+mod player;
+mod provider;
+mod round;
+mod team;
+
+use self::{
+    bomb::Bomb, map::Map, phase_countdowns::PhaseCountdowns, player::Player, provider::Provider,
+    round::Round,
+};
+
+#[derive(Deserialize, Debug, Clone)]
+pub struct Payload {
+    pub provider: Option<Provider>,
+    pub player: Option<Player>,
+    pub bomb: Option<Bomb>,
+    pub round: Option<Round>,
+    pub phase_countdowns: Option<PhaseCountdowns>,
+    pub map: Option<Map>,
+}
