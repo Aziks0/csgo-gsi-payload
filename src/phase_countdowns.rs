@@ -1,4 +1,5 @@
 use serde::Deserialize;
+use serde_with::{serde_as, DisplayFromStr};
 
 #[derive(Deserialize, Debug, Clone)]
 #[serde(rename_all = "lowercase")]
@@ -15,8 +16,10 @@ pub enum Phase {
     TimeoutCT,
 }
 
+#[serde_as]
 #[derive(Deserialize, Debug, Clone)]
 pub struct PhaseCountdowns {
     pub phase: Phase,
-    pub phase_ends_in: String, // FIXME: float doesn't work // not sure what the max is
+    #[serde_as(as = "DisplayFromStr")]
+    pub phase_ends_in: f64, // not sure what the max is
 }
