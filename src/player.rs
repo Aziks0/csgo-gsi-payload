@@ -10,7 +10,7 @@ fn default_smoked() -> u8 {
 }
 
 #[derive(Deserialize, Debug, Clone)]
-pub struct State {
+pub struct PlayerState {
     pub health: u16, // 0–32767
     pub armor: u8,   // 0–100
     pub helmet: bool,
@@ -62,7 +62,7 @@ pub struct Player {
     pub team: Option<Team>,
 
     // `player_state` component
-    pub state: Option<State>,
+    pub state: Option<PlayerState>,
 
     // `player_position` component
     #[serde(rename = "spectarget")]
