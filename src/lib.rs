@@ -33,5 +33,10 @@ pub struct Payload {
     pub phase_countdowns: Option<PhaseCountdowns>,
     pub map: Option<Map>,
 
+    #[serde(rename = "allplayers")]
+    pub all_players: Option<HashMap<String, Player>>,
     pub grenades: Option<HashMap<String, Grenade>>,
+
+    pub added: Option<serde_json::Value>,
+    pub previously: Option<serde_json::Value>,
 }
