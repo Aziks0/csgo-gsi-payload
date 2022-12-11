@@ -58,13 +58,15 @@ pub struct Player {
     pub name: Option<String>,
     pub observer_slot: Option<u16>, // not sure what the max is
     pub team: Option<Team>,
+    pub activity: Option<Activity>,
 
     // `player_state` component
     pub state: Option<PlayerState>,
 
     // `player_position` component
+    /// a SteamID64
     #[serde(rename = "spectarget")]
-    pub spec_target: Option<String>, // a SteamID64
+    pub spec_target: Option<String>,
     pub position: Option<Coordinates>,
     pub forward: Option<Coordinates>,
 
