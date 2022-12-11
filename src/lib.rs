@@ -5,9 +5,11 @@
 //! [reddit_doc_archive]: https://web.archive.org/web/20220906050651/https://www.reddit.com/r/GlobalOffensive/comments/cjhcpy/game_state_integration_a_very_large_and_indepth/
 
 use serde::Deserialize;
+use std::collections::HashMap;
 
 mod bomb;
 mod custom;
+mod grenade;
 mod map;
 mod phase_countdowns;
 mod player;
@@ -20,6 +22,7 @@ use self::{
     bomb::Bomb, map::Map, phase_countdowns::PhaseCountdowns, player::Player, provider::Provider,
     round::Round,
 };
+use grenade::Grenade;
 
 #[derive(Deserialize, Debug, Clone)]
 pub struct Payload {
@@ -30,4 +33,5 @@ pub struct Payload {
     pub phase_countdowns: Option<PhaseCountdowns>,
     pub map: Option<Map>,
 
+    pub grenades: Option<HashMap<String, Grenade>>,
 }
