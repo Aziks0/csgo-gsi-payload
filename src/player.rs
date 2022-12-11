@@ -3,14 +3,20 @@ use serde::Deserialize;
 use super::custom::coordinates::Coordinates;
 use super::team::Team;
 
+#[inline]
+fn default_smoked() -> u8 {
+    0
+}
+
 #[derive(Deserialize, Debug, Clone)]
 pub struct State {
     pub health: u16, // 0–32767
     pub armor: u8,   // 0–100
     pub helmet: bool,
     pub flashed: u8, // 0–255
-    pub smoked: u8,  // 0–255
     pub burning: u8, // 0–255
+    #[serde(default = "default_smoked")] // this field doesn't exist sometimes 🤡
+    pub smoked: u8, // 0–255
     pub money: u16,  // 0–65535
     pub round_kills: u8,
     #[serde(rename = "round_killhs")]
