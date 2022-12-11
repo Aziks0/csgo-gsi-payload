@@ -14,6 +14,7 @@ mod player;
 mod provider;
 mod round;
 mod team;
+mod weapon;
 
 use self::{
     bomb::Bomb, map::Map, phase_countdowns::PhaseCountdowns, player::Player, provider::Provider,
@@ -28,4 +29,5 @@ pub struct Payload {
     pub round: Option<Round>,
     pub phase_countdowns: Option<PhaseCountdowns>,
     pub map: Option<Map>,
+
 }

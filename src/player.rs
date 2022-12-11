@@ -1,8 +1,10 @@
 use serde::Deserialize;
+use std::collections::HashMap;
 
 use super::custom::coordinates::Coordinates;
 use super::custom::default::default_false;
 use super::team::Team;
+use super::weapon::Weapon;
 
 #[inline]
 fn default_smoked() -> u8 {
@@ -39,10 +41,6 @@ pub struct MatchStats {
     pub score: u16,
 }
 
-// TODO
-#[derive(Deserialize, Debug, Clone)]
-pub struct Weapons {}
-
 #[derive(Deserialize, Debug, Clone)]
 #[serde(rename_all = "lowercase")]
 pub enum Activity {
@@ -74,5 +72,6 @@ pub struct Player {
     pub match_stats: Option<MatchStats>,
 
     // `player_weapons` component
-    pub weapons: Option<Weapons>,
+    #[serde(default)]
+    pub weapons: HashMap<String, Weapon>, // QUESTION: `Option` instead of HashMap::Default() ?
 }
