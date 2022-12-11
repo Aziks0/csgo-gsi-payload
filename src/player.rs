@@ -1,6 +1,7 @@
 use serde::Deserialize;
 
 use super::custom::coordinates::Coordinates;
+use super::custom::default::default_false;
 use super::team::Team;
 
 #[inline]
@@ -22,6 +23,11 @@ pub struct State {
     #[serde(rename = "round_killhs")]
     pub round_kills_hs: u8,
     pub equip_value: u16, // not sure what the max is, but obviously below 65535
+    #[serde(default = "default_false")] // this field doesn't exist when it is false 🤡
+    #[serde(rename = "defusekit")]
+    pub defuse_kit: bool,
+    #[serde(rename = "round_totaldmg")]
+    pub round_total_damage: Option<u16>,
 }
 
 #[derive(Deserialize, Debug, Clone)]
