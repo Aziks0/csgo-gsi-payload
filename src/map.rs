@@ -44,7 +44,7 @@ pub struct Map {
     pub team_t: TeamSubsection,
     pub team_ct: TeamSubsection,
     pub num_matches_to_win_series: u16,
-    pub current_spectator: Option<u64>,
+    pub current_spectators: Option<u64>,
     pub souvenirs_total: u64,
     #[serde(default)]
     pub round_wins: HashMap<u16, RoundWinCondition>,
