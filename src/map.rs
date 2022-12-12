@@ -7,6 +7,8 @@ pub struct TeamSubsection {
     pub consecutive_round_losses: u16,
     pub timeouts_remaining: u16,
     pub matches_won_this_series: u16,
+    /// Team name
+    pub name: Option<String>,
 }
 
 #[derive(Deserialize, Debug, Clone)]
@@ -15,6 +17,7 @@ pub enum Phase {
     Live,
     Warmup,
     Intermission,
+    GameOver,
 }
 
 #[derive(Deserialize, Debug, Clone)]
@@ -23,6 +26,13 @@ pub enum Mode {
     Competitive,
     Casual,
     Deathmatch,
+    #[serde(rename = "scrimcomp2v2")]
+    Wingman,
+    #[serde(rename = "gungameprogressive")]
+    GunGame,
+    #[serde(rename = "gungametrbomb")]
+    Demolition,
+    Training,
 }
 
 #[derive(Deserialize, Debug, Clone)]
