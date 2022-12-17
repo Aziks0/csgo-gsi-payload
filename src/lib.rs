@@ -9,20 +9,26 @@ use std::collections::HashMap;
 
 mod bomb;
 mod custom;
-mod grenade;
-mod map;
-mod phase_countdowns;
-mod player;
 mod provider;
-mod round;
 mod team;
-mod weapon;
+
+// no re-export for these because they contain multiple struct/enums
+pub mod grenade;
+pub mod map;
+pub mod phase_countdowns;
+pub mod player;
+pub mod round;
+pub mod weapon;
+
+// re-export to avoid repetition
+pub use bomb::Bomb;
+pub use custom::coordinates::Coordinates;
+pub use provider::Provider;
+pub use team::Team;
 
 use self::{
-    bomb::Bomb, map::Map, phase_countdowns::PhaseCountdowns, player::Player, provider::Provider,
-    round::Round,
+    grenade::Grenade, map::Map, phase_countdowns::PhaseCountdowns, player::Player, round::Round,
 };
-use grenade::Grenade;
 
 #[derive(Deserialize, Debug, Clone)]
 pub struct Payload {
