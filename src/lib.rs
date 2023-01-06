@@ -1,8 +1,9 @@
-//! CSGO Game State Integration documentation coming partially from
-//! [u/Bkid](reddit_doc) — __[Archive](reddit_doc_archive)__
+//! Data structures for CSGO Game State Integration payload.
 //!
-//! [reddit_doc]: https://www.reddit.com/r/GlobalOffensive/comments/cjhcpy/game_state_integration_a_very_large_and_indepth/
-//! [reddit_doc_archive]: https://web.archive.org/web/20220906050651/https://www.reddit.com/r/GlobalOffensive/comments/cjhcpy/game_state_integration_a_very_large_and_indepth/
+//! CSGO Game State Integration documentation coming partially from
+//! [u/Bkid](https://www.reddit.com/r/GlobalOffensive/comments/cjhcpy/game_state_integration_a_very_large_and_indepth/)
+//! — __[Archive](https://web.archive.org/web/20220906050651/https://www.reddit.com/r/GlobalOffensive/comments/cjhcpy/game_state_integration_a_very_large_and_indepth/)__
+//!
 
 use serde::Deserialize;
 use std::collections::HashMap;
@@ -31,6 +32,7 @@ use self::{
 };
 
 #[derive(Deserialize, Debug, Clone)]
+#[serde(deny_unknown_fields)]
 pub struct Payload {
     pub provider: Option<Provider>,
     pub player: Option<Player>,

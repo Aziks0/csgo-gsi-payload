@@ -42,11 +42,15 @@ pub enum WeaponState {
 
 #[derive(Deserialize, Debug, Clone)]
 pub struct Weapon {
+    /// Weapon name.
     pub name: String,
+    /// Weapon skin name.
     #[serde(rename = "paintkit")]
     pub paint_kit: String,
+    /// Weapon type. See [`WeaponType`].
     #[serde(default)]
     pub r#type: WeaponType, // `type` is a reserved keyword
+    /// Weapon type. See [`WeaponState`].
     pub state: WeaponState,
     pub ammo_clip: Option<u16>,
     pub ammo_clip_max: Option<u16>,

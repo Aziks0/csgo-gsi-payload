@@ -15,6 +15,11 @@ pub enum BombState {
 #[serde(tag = "phase")]
 pub enum Round {
     FreezeTime,
-    Over { win_team: Option<Team> },
-    Live { bomb: Option<BombState> },
+    Over {
+        win_team: Option<Team>,
+        bomb: Option<BombState>,
+    },
+    Live {
+        bomb: Option<BombState>,
+    },
 }

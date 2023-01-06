@@ -16,10 +16,11 @@ pub enum GrenadeType {
     Flashbang,
 }
 
+/// Information about a thrown grenade
 #[serde_as]
 #[derive(Deserialize, Debug, Clone)]
 pub struct Grenade {
-    /// a SteamID64
+    /// SteamID64 of the player that threw the grenade.
     pub owner: String,
     #[serde_as(as = "DisplayFromStr")]
     pub lifetime: f64,
