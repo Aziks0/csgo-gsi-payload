@@ -5,7 +5,7 @@ Data structures for CSGO Game State Integration payload.
 ## Docs
 
 Documentation is available
-[here](https://docs.rs/csgo-gsi-payload/0.1.0/csgo_gsi_payload/).
+[here](https://docs.rs/csgo-gsi-payload).
 
 ## Exemple
 
