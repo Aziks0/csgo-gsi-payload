@@ -4,6 +4,7 @@ description = "Data structures for CSGO Game State Integration"
 version = "0.1.0"
 authors = ["Benjamin DIDIER <contact@aziks.aleeas.com>"]
 repository = "https://github.com/Aziks0/csgo-gsi-payload"
+license = "MPL-2.0"
 documentation = "https://docs.rs/csgo-gsi-payload/0.1.0/csgo_gsi_payload/"
 categories = ["data-structures", "api-bindings"]
 keywords = ["csgo"]
